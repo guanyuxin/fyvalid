@@ -1,0 +1,16 @@
+{
+  "name": "excel",
+  "version": "0.0.1",
+  "build": 1,
+  "files": [
+    "jd.js",
+    "LIB/encode.data",
+    "LIB/match1.data",
+    "LIB/ng.data",
+    "LIB/quotes.data",
+    "package.json",
+  ],
+  "dependencies": {
+    "node-xlsx": "^0.7.2"
+  }
+}

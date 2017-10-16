@@ -1,0 +1,112 @@
+#本文中， 原文出现的内容，译文必须出现；且原文出现数量 > 译文出现数量。 译文出现的符号原文不一定需要
+#本文所匹配的内容，不进行后续检测（比如euc）
+
+#样例：
+# 译文符号  <<<  原文符号
+# 译文符号  <<<  原文符号1|原文符号2|原文符号3
+# "译文符号"  <<<  原文符号1|原文符号2|原文符号3
+
+
+#反向编码
+&iexcl;  <<<   ¡
+&curren;  <<<   ¤
+&brvbar;  <<<   ¦
+&copy;  <<<   ©
+&reg;  <<<   ®
+&macr;  <<<   ¯
+&cedil;  <<<   ¸
+&frac14;  <<<   ¼
+&frac12;  <<<   ½
+&frac34;  <<<   ¾
+&iquest;  <<<   ¿
+&Agrave;  <<<   À
+&Aacute;  <<<   Á
+&Acirc;  <<<   Â
+&Atilde;  <<<   Ã
+&Auml;  <<<   Ä
+&AElig;  <<<   Æ
+&Ccedil;  <<<   Ç
+&Egrave;  <<<   È
+&Eacute;  <<<   É
+&Ecirc;  <<<   Ê
+&Euml;  <<<   Ë
+&Igrave;  <<<   Ì
+&Iacute;  <<<   Í
+&Icirc;  <<<   Î
+&Iuml;  <<<   Ï
+&ETH;  <<<   Ð
+&Ntilde;  <<<   Ñ
+&Ograve;  <<<   Ò
+&Oacute;  <<<   Ó
+&Ocirc;  <<<   Ô
+&Otilde;  <<<   Õ
+&Ouml;  <<<   Ö
+&Oslash;  <<<   Ø
+&Ugrave;  <<<   Ù
+&Uacute;  <<<   Ú
+&Ucirc;  <<<   Û
+&Uuml;  <<<   Ü
+&Yacute;  <<<   Ý
+&THORN;  <<<   Þ
+&szlig;  <<<   ß
+&agrave;  <<<   à
+&aacute;  <<<   á
+&acirc;  <<<   â
+&atilde;  <<<   ã
+&auml;  <<<   ä
+&aring;  <<<   å
+&aelig;  <<<   æ
+&ccedil;  <<<   ç
+&egrave;  <<<   è
+&eacute;  <<<   é
+&ecirc;  <<<   ê
+&euml;  <<<   ë
+&igrave;  <<<   ì
+&iacute;  <<<   í
+&icirc;  <<<   î
+&iuml;  <<<   ï
+&eth;  <<<   ð
+&ntilde;  <<<   ñ
+&ograve;  <<<   ò
+&oacute;  <<<   ó
+&ocirc;  <<<   ô
+&otilde;  <<<   õ
+&ouml;  <<<   ö
+&oslash;  <<<   ø
+&ugrave;  <<<   ù
+&uacute;  <<<   ú
+&ucirc;  <<<   û
+&uuml;  <<<   ü
+&yacute;  <<<   ý
+&thorn;  <<<   þ
+&yuml;  <<<   ÿ
+&Dstrok;  <<<   Đ
+&brkbar;  <<<   ¦
+&die;  <<<   ¨
+&hibar;  <<<   ¯
+
+# 正向编码
+＆  <<<   &amp;
+＜  <<<   &lt;
+＞  <<<   &gt;
+'  <<<   &apos;
+＼  <<<   &quot;
+"　"  <<<   &nbsp;
+￠  <<<   &cent;
+￡  <<<   &pound;
+§  <<<   &sect;
+¨  <<<   &uml;
+－  <<<   &shy;
+°  <<<   &deg;
+±  <<<   &plusmn;
+´  <<<   &acute;
+¶  <<<   &para;
+×  <<<   &times;
+÷  <<<   &divide;
+¨  <<<   &die;
+￣  <<<   &hibar;
+￥  <<<   &yen;
+￢  <<<   &not;
+μ  <<<   &micro;
+Å  <<<   &Aring;
+・  <<<   &middot;
