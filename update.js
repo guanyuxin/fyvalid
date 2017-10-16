@@ -1,15 +1,16 @@
-
-function sendToWin(type, msg) {
-  console.log(type, msg)
-}
-
-var http = require('http');
+var https = require('https');
 var fs = require('fs');
 var packageConfig = require('./package.json');
 
+function sendToWin(type, msg) {
+  console.log(msg)
+}
+
 function checkUpdate(cb) {
-  getHttpData('http://raw.githubusercontent.com/guanyuxin/fyvalid/master/package.json', function (res) {
+  getHttpsData('https://raw.githubusercontent.com/guanyuxin/fyvalid/master/package.json', function (res) {
+    console.log(res);
     var data = JSON.parse(res);
+    
     packageConfig.buildVer = packageConfig.buildVer || -1;
     if (packageConfig.buildVer < data.buildVer) {
       sendToWin('updateInfo', '检测到更新');
@@ -24,7 +25,7 @@ checkUpdate(function (data) {
   fs.mkdir('./resources/app/updateTmp', function () {
     var updateing = data.files.map(function(file, i) {
       return new Promise(function (resolve, reject) {
-        getHttpData('http://raw.githubusercontent.com/guanyuxin/fyvalid/master/' + file, function (res) {
+        getHttpsData('https://raw.githubusercontent.com/guanyuxin/fyvalid/master/' + file, function (res) {
           console.log('downloaded' + file);
           fs.writeFile('./resources/app/updateTmp/' + file, res, function () {
             sendToWin('updateInfo', '下载' + file);
@@ -54,18 +55,19 @@ checkUpdate(function (data) {
 });
 
 
-function getHttpData(filepath, success, error) {
+function getHttpsData(filepath, success, error) {
   // 回调缺省时候的处理
   success = success || function () {};
   error = error || function () {};
 
   var url = filepath + '?r=' + Math.random();
 
-  http.get(url, function (res) {
+  https.get(url, function (res) {
     var statusCode = res.statusCode;
 
     if (statusCode !== 200) {
       // 出错回调
+      console.log(statusCode);
       error();
       // 消耗响应数据以释放内存
       res.resume();

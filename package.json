@@ -8,7 +8,7 @@
     "LIB/match1.data",
     "LIB/ng.data",
     "LIB/quotes.data",
-    "package.json",
+    "package.json"
   ],
   "dependencies": {
     "node-xlsx": "^0.7.2"
