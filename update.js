@@ -11,7 +11,7 @@ function checkUpdate(cb) {
     var data = JSON.parse(res);
     
     packageConfig.build = packageConfig.build || -1;
-    if (packageConfig.build < data.build) {
+    if (packageConfig.build <= data.build) {
       sendToWin('updateInfo', '检测到更新');
       cb && cb(data);
     } else {
