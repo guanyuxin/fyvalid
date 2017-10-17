@@ -94,7 +94,7 @@ function cmp (line, isHead, a, b) {
 		return errs;
 	}
 
-	if (!opts.quotes) {
+	if (!opts.quotes && isHead) {
 		var end = b.charAt(b.length-1);
 		if (!quotes[end]) {
 			if(!['及','或','或者','且','其中'].some((word) => {
