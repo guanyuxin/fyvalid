@@ -93,8 +93,8 @@ function cmp (line, isHead, a, b) {
 	if (a.indexOf("<img") != -1 || a.indexOf('<table') != -1 || a.indexOf('<maths') != -1) {
 		return errs;
 	}
-	
-	if (!isHead) {
+
+	if (!opts.quotes) {
 		var end = b.charAt(b.length-1);
 		if (!quotes[end]) {
 			if(!['及','或','或者','且','其中'].some((word) => {

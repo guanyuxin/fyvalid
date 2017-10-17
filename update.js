@@ -49,7 +49,7 @@ checkUpdate(function (data) {
       }, () => {
         sendToWin('updateInfo', '更新失败');
       }).then(()=>{
-        sendToWin('updateInfo', '更新完毕，重启生效');
+        sendToWin('updateInfo', '更新完毕');
       })
     });
   })
