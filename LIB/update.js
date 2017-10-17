@@ -1,4 +1,4 @@
-var http = require('http');
+var https = require('https');
 var fs = require('fs');
 var packageConfig = require('./package.json');
 
@@ -7,7 +7,7 @@ function sendToWin(type, msg) {
 }
 
 function checkUpdate(cb) {
-  getHttpData('http://guanyuxin.com:3000/fyvalid/package.json', function (res) {
+  getHttpsData('https://raw.githubusercontent.com/guanyuxin/fyvalid/master/package.json', function (res) {
     var data = JSON.parse(res);
     
     packageConfig.build = packageConfig.build || -1;
@@ -22,48 +22,46 @@ function checkUpdate(cb) {
 
 checkUpdate(function (data) {
   fs.mkdir('./tmp', function () {
-    fs.mkdir('./tmp/LIB', function () {
-      var updateing = data.files.map(function(file, i) {
-        return new Promise(function (resolve, reject) {
-          getHttpData('http://guanyuxin.com:3000/fyvalid/' + file, function (res) {
-            console.log('downloaded' + file);
-            fs.writeFile('./tmp/' + file, res, function () {
-              sendToWin('updateInfo', '下载' + file);
-              resolve(file);
-            });
-          }, () => {
-            reject();
+    var updateing = data.files.map(function(file, i) {
+      return new Promise(function (resolve, reject) {
+        getHttpsData('https://raw.githubusercontent.com/guanyuxin/fyvalid/master/' + file, function (res) {
+          console.log('downloaded' + file);
+          fs.writeFile('./tmp/' + file, res, function () {
+            sendToWin('updateInfo', '下载' + file);
+            resolve(file);
           });
+        }, () => {
+          reject();
         });
       });
-      Promise.all(updateing).then((res) => {
-        sendToWin('updateInfo', '下载完成');
-        var moveing = res.map((file, i) => {
-          return new Promise((resolve, reject) =>{
-            fs.rename('./tmp/' + file, './' + file, () => {
-              resolve(file);
-            })
+    });
+    Promise.all(updateing).then((res) => {
+      sendToWin('updateInfo', '下载完成');
+      var moveing = res.map((file, i) => {
+        return new Promise((resolve, reject) =>{
+          fs.rename('./tmp/' + file, './' + file, () => {
+            resolve(file);
           })
         })
-        return Promise.all(moveing)
-      }, () => {
-        sendToWin('updateInfo', '更新失败');
-      }).then(()=>{
-        sendToWin('updateInfo', '更新完毕，重启生效');
       })
-    });
+      return Promise.all(moveing)
+    }, () => {
+      sendToWin('updateInfo', '更新失败');
+    }).then(()=>{
+      sendToWin('updateInfo', '更新完毕，重启生效');
+    })
   })
 });
 
 
-function getHttpData(filepath, success, error) {
+function getHttpsData(filepath, success, error) {
   // 回调缺省时候的处理
   success = success || function () {};
   error = error || function () {};
 
   var url = filepath + '?r=' + Math.random();
 
-  http.get(url, function (res) {
+  https.get(url, function (res) {
     var statusCode = res.statusCode;
 
     if (statusCode !== 200) {

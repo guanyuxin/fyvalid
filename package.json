@@ -1,7 +1,7 @@
 {
   "name": "excel",
   "version": "0.0.1",
-  "build": 1,
+  "build": 2,
   "files": [
     "jd.js",
     "LIB/encode.data",
