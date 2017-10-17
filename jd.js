@@ -93,11 +93,16 @@ function cmp (line, isHead, a, b) {
 	if (a.indexOf("<img") != -1 || a.indexOf('<table') != -1 || a.indexOf('<maths') != -1) {
 		return errs;
 	}
+	
 	if (!isHead) {
 		var end = b.charAt(b.length-1);
 		if (!quotes[end]) {
-			errs.push("结尾必须是标点");
-			console.log("-------错误：结尾必须是标点" + end + "(第"+(i+1)+")");
+			if(!['及','或','或者','且','其中'].some((word) => {
+				return a.endsWith(word);
+			})) {
+				errs.push("结尾必须是标点");
+				console.log("-------错误：结尾必须是标点" + end + "(第"+(i+1)+")");
+			}
 		}
 	}
 
