@@ -94,14 +94,15 @@ function cmp (line, isHead, a, b) {
 		return errs;
 	}
 
-	if (!opts.quotes && isHead) {
+	if (opts.quote && !isHead) {
 		var end = b.charAt(b.length-1);
 		if (!quotes[end]) {
 			if(!['及','或','或者','且','其中'].some((word) => {
 				return a.endsWith(word);
 			})) {
+				debugger;
 				errs.push("结尾必须是标点");
-				console.log("-------错误：结尾必须是标点" + end + "(第"+(i+1)+")");
+				console.log("-------"+line+"错误：结尾必须是标点" + end + "(第"+(i+1)+")");
 			}
 		}
 	}
@@ -221,9 +222,11 @@ function xls2txt (nm) {
 		if (i < opts.head) {continue}
 		if (data[i][0] != undefined) {
 			var isHead = false;
-			if (opts.head && data[i][7] == 0) {
+			//console.log(data[i][7])
+			if (data[i][7] == "0") {
 				isHead = true;
 			}
+			//console.log(isHead)
 			var d = cmp(i, isHead, data[i][opts.l1], data[i][opts.l2]);
 			if (data[i].length != opts.l3) {
 				d.push("列数量错误")
