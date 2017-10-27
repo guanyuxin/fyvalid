@@ -1,13 +1,14 @@
 {
   "name": "excel",
   "version": "0.0.1",
-  "build": 6,
+  "build": 7,
   "files": [
     "jd.js",
     "LIB/encode.data",
     "LIB/match1.data",
     "LIB/ng.data",
     "LIB/quotes.data",
+    "p-all.bat",
     "package.json"
   ],
   "dependencies": {
