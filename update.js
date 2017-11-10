@@ -68,7 +68,7 @@ function getHttpData(filepath, success, error) {
 
     if (statusCode !== 200) {
       // 出错回调
-      console.log(statusCode);
+      console.log(statusCode + filepath);
       error();
       // 消耗响应数据以释放内存
       res.resume();
