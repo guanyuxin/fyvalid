@@ -7,7 +7,7 @@
     "LIB/encode.data",
     "LIB/ng.data",
     "LIB/quotes.data",
-    "p-all.bat",
+    "P-all.bat",
     "package.json"
   ],
   "dependencies": {
