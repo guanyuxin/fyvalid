@@ -1,9 +1,10 @@
 {
   "name": "excel",
   "version": "0.0.1",
-  "build": 7,
+  "build": 8,
   "files": [
     "jd.js",
+    "update.js",
     "LIB/encode.data",
     "LIB/ng.data",
     "LIB/quotes.data",

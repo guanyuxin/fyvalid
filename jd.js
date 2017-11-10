@@ -99,7 +99,7 @@ function cmp (line, isHead, a, b) {
 		if (!quotes[end]) {
 			if(!['及','或','或者','且','其中','和'].some((word) => {
 				return a.endsWith(word);
-			} && ["【実施例】","［実施例］","（実施例）"].indexOf(b) !== -1)) {
+			}) && ["【実施例】","［実施例］","（実施例）"].indexOf(b) !== -1) {
 				errs.push("结尾必须是标点");
 				console.log("-------"+line+"错误：结尾必须是标点" + end + "(第"+(i+1)+")");
 			}
