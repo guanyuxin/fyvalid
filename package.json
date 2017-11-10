@@ -5,7 +5,6 @@
   "files": [
     "jd.js",
     "LIB/encode.data",
-    "LIB/match1.data",
     "LIB/ng.data",
     "LIB/quotes.data",
     "p-all.bat",
