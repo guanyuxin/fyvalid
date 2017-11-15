@@ -8,7 +8,6 @@
     "LIB/encode.data",
     "LIB/ng.data",
     "LIB/quotes.data",
-    "P-all.bat",
     "package.json"
   ],
   "dependencies": {
