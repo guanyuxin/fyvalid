@@ -79,7 +79,7 @@ function cmp (line, isHead, a, b) {
 
 
 	for (var i = 0; i < b2.length; i++) {
-		if (!EUC[b2.charAt(i)]) {
+		if (!EUC[b2.charAt(i)] || b2.charAt(i) == ',') {
 			if (halfCode.indexOf(b2.charAt(i)) == -1) {
 				console.log("-------错误：【"+b2.charAt(i)+"】不在EUC范围内(第"+(i+1)+")")
 				errs.push("【"+b2.charAt(i)+"】不在EUC范围内(第"+(i+1)+")");
@@ -99,7 +99,7 @@ function cmp (line, isHead, a, b) {
 		if (!quotes[end]) {
 			if(!['及','或','或者','且','其中','和'].some((word) => {
 				return a.endsWith(word);
-			}) && ["【実施例】","［実施例］","（実施例）"].indexOf(b) !== -1) {
+			}) && ["【実施例】","［実施例］","（実施例）"].indexOf(b) === -1) {
 				errs.push("结尾必须是标点");
 				console.log("-------"+line+"错误：结尾必须是标点" + end + "(第"+(i+1)+")");
 			}
