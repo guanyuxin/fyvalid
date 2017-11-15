@@ -90,10 +90,6 @@ function cmp (line, isHead, a, b) {
 		}
 	}
 
-	if (a.indexOf("<img") != -1 || a.indexOf('<table') != -1 || a.indexOf('<maths') != -1) {
-		return errs;
-	}
-
 	if (opts.quote && !isHead) {
 		var end = b.charAt(b.length-1);
 		if (!quotes[end]) {
@@ -104,6 +100,10 @@ function cmp (line, isHead, a, b) {
 				console.log("-------"+line+"错误：结尾必须是标点" + end + "(第"+(i+1)+")");
 			}
 		}
+	}
+
+	if (a.indexOf("<img") != -1 || a.indexOf('<table') != -1 || a.indexOf('<maths') != -1) {
+		return errs;
 	}
 
 	a = a.replace(/“/g,"\"")
