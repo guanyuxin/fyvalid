@@ -90,6 +90,17 @@ function cmp (line, isHead, a, b) {
 		}
 	}
 
+	//如果内容完全为<img xxx> 则检测标点，如果只是包含<img xxx>则不检测
+	if (
+		(a.indexOf("<img") != -1 || a.indexOf('<table') != -1 || a.indexOf('<maths') != -1) && 
+		!(
+			(a.indexOf("<img") === 0 || a.indexOf('<table') === 0 || a.indexOf('<maths')  === 0)
+			&& a.charAt(a.length - 1) === ">"
+		)
+	) {
+		return errs;
+	}
+
 	if (opts.quote && !isHead) {
 		var end = b.charAt(b.length-1);
 		if (!quotes[end]) {
